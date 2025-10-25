@@ -21,6 +21,7 @@ setup(
         "lemonade.tools.report",
         "lemonade.tools.server.utils",
         "lemonade.tools.server",
+        "lemonade.opencog",
         "lemonade_install",
         "lemonade_server",
     ],
@@ -90,6 +91,7 @@ setup(
             "lemonade-install=lemonade_install:installcli",
             "lemonade-server-dev=lemonade_server.cli:main",
             "lsdev=lemonade_server.cli:developer_entrypoint",
+            "lemonade-opencog=lemonade.opencog.cli:main",
         ]
     },
     python_requires=">=3.10, <3.14",
