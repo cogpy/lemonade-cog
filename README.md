@@ -179,6 +179,7 @@ The [Lemonade SDK](./docs/README.md) also include the following components:
 
 - 🐍 **[Lemonade API](./docs/lemonade_api.md)**: High-level Python API to directly integrate Lemonade LLMs into Python applications.
 - 🖥️ **[Lemonade CLI](./docs/dev_cli/README.md)**: The `lemonade` CLI lets you mix-and-match LLMs (ONNX, GGUF, SafeTensors) with prompting templates, accuracy testing, performance benchmarking, and memory profiling to characterize your models on your hardware.
+- 🧠 **[OpenCog Orchestration](./docs/opencog.md)**: Autonomous multi-agent orchestration workbench with AGI cognitive synergy, self-healing maintenance, and autonomous improvement workflows for true autognosis and autogenesis.
 
 ## FAQ
 

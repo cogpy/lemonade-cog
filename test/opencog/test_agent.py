@@ -15,7 +15,7 @@ async def test_agent_initialization():
         model_config={"model": "test"},
         capabilities=["inference"],
     )
-    
+
     assert agent.agent_id == "test_agent"
     assert agent.state == AgentState.IDLE
     assert "inference" in agent.capabilities
@@ -26,7 +26,7 @@ async def test_agent_initialize():
     """Test agent initialization process"""
     agent = CognitiveAgent(agent_id="test_agent")
     await agent.initialize()
-    
+
     assert agent.state == AgentState.ACTIVE
 
 
@@ -38,10 +38,10 @@ async def test_agent_execute_inference_task():
         capabilities=["inference"],
     )
     await agent.initialize()
-    
+
     task = {"type": "inference", "prompt": "test"}
     result = await agent.execute_task(task)
-    
+
     assert result["status"] == "completed"
     assert result["task_type"] == "inference"
     assert result["agent_id"] == "test_agent"
@@ -55,10 +55,10 @@ async def test_agent_execute_monitoring_task():
         capabilities=["monitoring"],
     )
     await agent.initialize()
-    
+
     task = {"type": "monitor"}
     result = await agent.execute_task(task)
-    
+
     assert result["status"] == "completed"
     assert result["task_type"] == "monitor"
     assert result["health_status"] == "healthy"
@@ -72,10 +72,10 @@ async def test_agent_execute_optimization_task():
         capabilities=["optimization"],
     )
     await agent.initialize()
-    
+
     task = {"type": "optimize"}
     result = await agent.execute_task(task)
-    
+
     assert result["status"] == "completed"
     assert result["task_type"] == "optimize"
 
@@ -85,16 +85,16 @@ async def test_agent_learn_from_experience():
     """Test agent learning capability"""
     agent = CognitiveAgent(agent_id="test_agent")
     await agent.initialize()
-    
+
     # Execute some tasks to build experience
     await agent.execute_task({"type": "inference"})
     await agent.execute_task({"type": "monitor"})
-    
+
     assert len(agent.experience_log) == 2
-    
+
     # Learn from experience
     await agent.learn_from_experience()
-    
+
     assert agent.state == AgentState.ACTIVE
 
 
@@ -103,9 +103,9 @@ async def test_agent_self_heal():
     """Test agent self-healing capability"""
     agent = CognitiveAgent(agent_id="test_agent")
     await agent.initialize()
-    
+
     await agent.self_heal()
-    
+
     assert agent.state == AgentState.ACTIVE
 
 
@@ -114,7 +114,7 @@ async def test_agent_shutdown():
     """Test agent shutdown"""
     agent = CognitiveAgent(agent_id="test_agent")
     await agent.initialize()
-    
+
     await agent.shutdown()
-    
+
     assert agent.state == AgentState.IDLE
